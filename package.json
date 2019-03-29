@@ -1,6 +1,11 @@
 {
 	"name": "kamui",
+	"publisher": "dantezy",
 	"displayName": "kamui",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ZhangYet/kamui.git"
+	},
 	"description": "bookdown extension for vs code",
 	"version": "0.0.1",
 	"engines": {
