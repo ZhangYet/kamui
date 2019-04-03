@@ -7,12 +7,12 @@
 		"url": "https://github.com/ZhangYet/kamui.git"
 	},
 	"description": "bookdown extension for vs code",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.32.0"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages"
 	],
 	"activationEvents": [
 		"onCommand:bookdown.buildBook"
@@ -43,5 +43,10 @@
 	},
 	"dependencies": {
 		"open": "^6.0.0"
-	}
+	},
+	"keywords": [
+		"R",
+		"R language",
+		"bookdown"
+	]
 }
