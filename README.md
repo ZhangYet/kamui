@@ -6,6 +6,10 @@
 
 * `bookdown.buildBook`: build bookdown project.
 
+## Usage
+
+![Usage](./usage.gif)
+
 ## Requirements
 
 You need to install R and bookdown at first.
@@ -15,6 +19,10 @@ You need to install R and bookdown at first.
 There is no settings now
 
 ## Release Notes
+
+### 0.0.2
+
+update compiling log output.
 
 ### 0.0.1
 
