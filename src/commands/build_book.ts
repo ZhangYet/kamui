@@ -8,7 +8,12 @@ export async function buildBook(context: vscode.ExtensionContext) {
     // TODO: a more elegant way to do so
     var defaultWorkDir = context.workspaceState.get<string>(common.DefaultWorkDirKey);
     if (defaultWorkDir === undefined) {
-        defaultWorkDir = cleanWorkPath('.');
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+        if (workspaceFolders !== undefined && workspaceFolders.length <= 1) {
+            defaultWorkDir = workspaceFolders[0].uri.path;
+        } else {
+            defaultWorkDir = require('os').homedir();
+        }
     }
     var path: string | undefined = await vscode.window.showInputBox({
         prompt: 'Enter bookdown project path.',
