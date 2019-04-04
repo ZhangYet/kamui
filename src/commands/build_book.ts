@@ -2,7 +2,6 @@ import * as child from 'child_process';
 import * as vscode from 'vscode';
 
 import * as common from '../common';
-import { start } from 'repl';
 
 export async function buildBook(context: vscode.ExtensionContext) {
     // get workdir and store workdir
