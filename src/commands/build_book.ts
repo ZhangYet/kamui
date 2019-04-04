@@ -2,6 +2,7 @@ import * as child from 'child_process';
 import * as vscode from 'vscode';
 
 import * as common from '../common';
+import { start } from 'repl';
 
 export async function buildBook(context: vscode.ExtensionContext) {
     // get workdir and store workdir
@@ -27,8 +28,7 @@ export async function buildBook(context: vscode.ExtensionContext) {
 
     // run the script and make process
     var args = [getScriptPath('build_book.R'), 'all', path];
-    const s = child.spawn('Rscript', args);
-
+    const s = child.spawn('Rscript', args, { shell: true });
 
     var outputChannel = vscode.window.createOutputChannel(common.CompileOutputChannelName);
     outputChannel.show(true);
@@ -42,13 +42,19 @@ export async function buildBook(context: vscode.ExtensionContext) {
             vscode.window.showInformationMessage(common.BuildingSuccessfuleMsg);
             if (path !== undefined) {
                 var openPath = cleanWorkPath(path) + common.OutputHtmlFile;
-                console.log('parsedPath: ' + openPath);
                 const open = require('open');
                 open(openPath);
             }
         } else {
             vscode.window.showErrorMessage(common.BuildingFailedMsg);
         }
+    });
+
+    var errOutputChannal = vscode.window.createOutputChannel(common.CompileErrorChannelName);
+    s.stderr.on('data', (data) => {
+        errOutputChannal.show(true);
+        errOutputChannal.append(data.toString());
+        console.log('stderr.data:' + data.toString());
     });
 }
 

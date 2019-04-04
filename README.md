@@ -20,6 +20,10 @@ There is no settings now
 
 ## Release Notes
 
+### 0.1.1
+
+add outputChannel to output error message of Rscript.
+
 ### 0.1.0
 
 release this version.
