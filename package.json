@@ -22,7 +22,7 @@
 		"commands": [
 			{
 				"command": "bookdown.buildBook",
-				"title": "building bookdown path",
+				"title": "build bookdown project",
 				"category": "bookdown"
 			}
 		]

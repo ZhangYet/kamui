@@ -35,3 +35,7 @@ update compiling log output.
 ### 0.0.1
 
 basic usage: buildBook.
+
+## TODO list
+
+1. save all changes before compiling.
