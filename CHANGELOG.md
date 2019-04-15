@@ -1,5 +1,9 @@
 ## Release Notes
 
+### 0.2.0
+
+refactor and reuse outputChannel.
+
 ### 0.1.1
 
 add outputChannel to output error message of Rscript.
