@@ -45,13 +45,17 @@ export class Kamui implements vscode.Disposable {
         this._logOutputChannel.show(true);
         s.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
-            this._logOutputChannel.appendLine(data.toString());
+            if (this._logOutputChannel !== null) {
+                this._logOutputChannel.appendLine(data.toString());
+            }
         });
 
         this._errOutputChannel.show(true);
         s.stderr.on('data', (data) => {
-            this._errOutputChannel.show(true);
-            this._errOutputChannel.append(data.toString());
+            if (this._errOutputChannel !== null) {
+                this._errOutputChannel.show(true);
+                this._errOutputChannel.append(data.toString());
+            }
         });
 
         s.on('close', (code) => {
