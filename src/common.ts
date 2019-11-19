@@ -4,4 +4,7 @@ export const BuildingSuccessfuleMsg: string = 'bookdown building is completed su
 export const BuildingFailedMsg: string = 'bookdown building failed';
 export const CompileOutputChannelName: string = 'compile output';
 export const CompileErrorChannelName: string = 'error';
-export const OutputHtmlFile: string = '/_book/output-of-presentation.html';
+
+var OutputDir: string = '_book';
+var OutputHtml: string = 'index.html';
+export var OutputHtmlFile: string = `/${OutputDir}/${OutputHtml}`;

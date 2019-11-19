@@ -7,16 +7,18 @@ import * as utils from './utils';
 export class Kamui implements vscode.Disposable {
 
     private _defaultPath: string | undefined;
-    private _logOutputChannel: vscode.OutputChannel;
-    private _errOutputChannel: vscode.OutputChannel;
+    private _logOutputChannel: vscode.OutputChannel | null;
+    private _errOutputChannel: vscode.OutputChannel | null;
 
 
     constructor() {
-        this._errOutputChannel = vscode.window.createOutputChannel(common.CompileErrorChannelName);
-        this._logOutputChannel = vscode.window.createOutputChannel(common.CompileOutputChannelName);
+        this._logOutputChannel = null;
+        this._errOutputChannel = null;
     }
 
     public async buildBook() {
+        this._errOutputChannel = vscode.window.createOutputChannel(common.CompileErrorChannelName);
+        this._logOutputChannel = vscode.window.createOutputChannel(common.CompileOutputChannelName);
         // get working dir
         if (this._defaultPath === undefined) {
             const workspaceFolders = vscode.workspace.workspaceFolders;
